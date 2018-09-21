@@ -8,7 +8,6 @@ class Landing extends Component {
         <img src={d2logo} alt="" />
 
         <input type="text" className="form-control form-control-lg" placeholder="Choose Your Guardian" />
-
       </div>
     )
   }
