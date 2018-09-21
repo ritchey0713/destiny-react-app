@@ -7,12 +7,13 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Router>
+      <Router>
+        <div className="App">
           <Navbar />
 
-        </Router>
-      </div>
+
+        </div>
+      </Router>
     );
   }
 }
