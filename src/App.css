@@ -30,10 +30,31 @@
 }
 
 .form-control {
-  width: 30%;
+  width: 100%;
   margin: 0 auto;
 }
 
 .form-control::placeholder {
   text-align: center;
+}
+
+.fas, .fab {
+  padding: 10px;
+  font-size: 5em;
+  border-radius: 5px;
+}
+
+.landing-form {
+  margin: 0 auto;
+  width: 30%;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.platform-buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
 }

@@ -8,8 +8,8 @@ import registerServiceWorker from './registerServiceWorker';
 import store from './store.js'
 
 ReactDOM.render(
-  <provider store={store}>
-    <App />,
-</provider>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root'));
 registerServiceWorker();
