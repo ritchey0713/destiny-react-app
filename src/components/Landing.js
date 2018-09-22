@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import d2logo from '../assets/d2logo.png'
+import { grabUser } from '../actions/user'
 
 class Landing extends Component {
 
@@ -8,8 +10,7 @@ class Landing extends Component {
     super(props)
 
     this.state = {
-      username: '',
-      platform: ''
+      username: ''
     }
 
     this.onChange = this.onChange.bind(this)
@@ -17,19 +18,16 @@ class Landing extends Component {
   }
 
   onChange(e) {
-    // e.preventDefault()
-    // this.setState({ [e.target.name]: e.target.value })
-    // this.setState({
-    //   username: e.target.value
-    // })
-    // console.log(this.state)
-
-    this.setState(() => ({ [e.target.name]: e.target.value }))
-
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   onSelectPlatform(e) {
-    debugger;
+    // action here to fetch from api
+    // send platform and this.state.username
+    let platform = parseInt(e.target.value)
+
+    this.props.grabUser(platform, this.state.username)
+    // probably want to redirect
   }
 
   render() {
@@ -49,9 +47,9 @@ class Landing extends Component {
             placeholder="Choose Your Guardian" />
 
           <div className="platform-buttons">
-            <button className="fas fa-desktop" onClick={this.onSelectPlatform} name="platform" value="pc"></button>
-            <button className="fab fa-playstation" onClick={this.onSelectPlatform} name="platform" value="playstation"></button>
-            <button className="fab fa-xbox" onClick={this.onSelectPlatform} name="platform" value="xbox"></button>
+            <button className="fas fa-desktop" onClick={this.onSelectPlatform} name="platform" value="4"></button>
+            <button className="fab fa-playstation" onClick={this.onSelectPlatform} name="platform" value="2"></button>
+            <button className="fab fa-xbox" onClick={this.onSelectPlatform} name="platform" value="1"></button>
           </div>
         </form>
       </div>
@@ -59,4 +57,8 @@ class Landing extends Component {
   }
 }
 
-export default Landing
+const mapStateToProps = state => ({
+  users: state.users
+})
+
+export default connect(mapStateToProps, { grabUser })(Landing)
