@@ -18,18 +18,13 @@ class Landing extends Component {
 
   onChange(e) {
     // e.preventDefault()
-    // this.setState({ [e.target.name]: e.target.value })
-    // this.setState({
-    //   username: e.target.value
-    // })
-    // console.log(this.state)
-
-    this.setState(() => ({ [e.target.name]: e.target.value }))
-
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   onSelectPlatform(e) {
-    debugger;
+    //action 
+    //send username and platform 
+    let platform = parseInt(e.target.value)
   }
 
   render() {
