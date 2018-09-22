@@ -18,10 +18,10 @@ export const grabUser = (userName, platform) => {
         'content-Type': 'application/json',
         "X-API-Key": API_KEY
       }
-      .then(response => response,json())
-      .then(user => {
-        dispatch(getUser(user))
-      })
+        .then(response => response.json())
+        .then(user => {
+          dispatch(getUser(user))
+        })
     })
   }
 }
