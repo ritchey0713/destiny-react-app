@@ -1,5 +1,5 @@
 const API_KEY = process.evn.REACT_APP_API_KEY
-const API_URL = "https://www.bungie.net/Platform"
+const API_URL = "https://www.bungie.net/Platform/Destiny2"
 
 const getUser = user => {
   return {
@@ -9,9 +9,9 @@ const getUser = user => {
 }
 
 ///Destiny2/{membershipType}/Profile/{destinyMembershipId}/
-
-export const grabUser = (user) => {
+//https://www.bungie.net/Platform/Destiny2/SearchDestinyPlayer/2/hoombauer
+export const grabUser = (userName, platform) => {
   return dispatch => {
-    return fetch(`${API_URL}`)
+    return fetch(`${API_URL}/platform/userName`)
   }
 }
