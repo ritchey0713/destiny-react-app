@@ -18,16 +18,26 @@ class Landing extends Component {
   }
 
   onChange(e) {
+<<<<<<< HEAD
+=======
+    // e.preventDefault()
+>>>>>>> 995ba164ed663dd056b50b69f82898aaec43f01c
     this.setState({ [e.target.name]: e.target.value })
   }
 
   onSelectPlatform(e) {
+<<<<<<< HEAD
     // action here to fetch from api
     // send platform and this.state.username
     let platform = parseInt(e.target.value)
 
     this.props.grabUser(platform, this.state.username)
     // probably want to redirect
+=======
+    //action 
+    //send username and platform 
+    let platform = parseInt(e.target.value)
+>>>>>>> 995ba164ed663dd056b50b69f82898aaec43f01c
   }
 
   render() {
