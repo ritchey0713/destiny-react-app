@@ -24,20 +24,14 @@ export const grabUser = (userName, platform) => {
         'Content-Type': 'application/json, charset=utf-8',
         'Origin': '*',
         "X-API-Key": API_KEY
-<<<<<<< HEAD
-      }
-=======
       }),
       mode: 'cors'
->>>>>>> 34bb91bca5b9cda3576bb0a65e626b6c62d3a34f
     })
       .then(response => response.json())
       .then(user => {
         dispatch(getUser(user))
       })
-<<<<<<< HEAD
-=======
       .catch(err => console.log(err))
->>>>>>> 34bb91bca5b9cda3576bb0a65e626b6c62d3a34f
+
   }
 }
