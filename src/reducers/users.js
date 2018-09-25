@@ -1,7 +1,9 @@
 export default (state = [], action) => {
+
   switch (action.type) {
     case "GET_USER_INFO":
-    return action.user
+    debugger
+    return action.user.Response[0]
 
     default:
       return state
