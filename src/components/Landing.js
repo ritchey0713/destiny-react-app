@@ -28,7 +28,14 @@ class Landing extends Component {
     e.preventDefault()
     let platform = parseInt(e.target.value)
 
-    this.props.grabUser(this.state.username, platform)
+    let username;
+    if (platform === 4) {
+      username = this.state.username.split("#").join("%23")
+    } else {
+      username = this.state.username
+    }
+
+    this.props.grabUser(username, platform)
     // probably want to redirect
   }
 
