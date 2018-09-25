@@ -1,14 +1,15 @@
+import { Provider } from 'react-redux';
 import {
   createStore,
   applyMiddleware,
   combineReducers
 } from 'redux'
 import thunk from 'redux-thunk'
-import usersReducer from './reducers/users'
+import users from './reducers/users'
 
 
 const reducers = combineReducers({
-  users: usersReducer,
+  users,
   // usersFormData
 })
 
