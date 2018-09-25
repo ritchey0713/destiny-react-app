@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import d2logo from '../assets/d2logo.png'
 import { grabUser } from '../actions/user'
-import Profile from './Profile.js'
+
 
 class Landing extends Component {
 
@@ -43,7 +43,6 @@ class Landing extends Component {
   render() {
     return (
       <div className="landing">
-      <Profile />
         <img src={d2logo} alt="" />
 
         <form className="landing-form">
