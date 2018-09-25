@@ -2,13 +2,31 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class Profile extends Component {
-  render() {
-    debugger
-    return(
+
+  // componentDidMount() {
+  //   debugger;
+  // }
+
+  renderUser() {
+    const user = this.props.users.user
+
+    return (
+
       <div>
-     
-        search destiny player dump 
-        
+        <h2>{user.displayName}</h2>
+      </div>
+
+    )
+  }
+
+  render() {
+    // debugger
+    return (
+      <div>
+
+        {this.props.users.user ? this.renderUser() : "NO USER"}
+        search destiny player dump
+
       </div>
     )
   }
@@ -18,4 +36,4 @@ const mapStateToProps = state => ({
   users: state.users
 })
 
-export default connect(null, mapStateToProps)(Profile)
+export default connect(mapStateToProps)(Profile)
