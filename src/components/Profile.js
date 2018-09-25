@@ -4,12 +4,12 @@ import { connect } from 'react-redux'
 class Profile extends Component {
 
   // componentDidMount() {
-  //   debugger;
+ 
   // }
 
   renderUser() {
     const user = this.props.users.user
-
+    debugger
     return (
 
       <div>
@@ -20,7 +20,6 @@ class Profile extends Component {
   }
 
   render() {
-    // debugger
     return (
       <div>
 
@@ -34,6 +33,7 @@ class Profile extends Component {
 
 const mapStateToProps = state => ({
   users: state.users
+
 })
 
 export default connect(mapStateToProps)(Profile)

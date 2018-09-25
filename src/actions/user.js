@@ -34,7 +34,7 @@ export const grabUser = (userName, platform, history) => {
       //   dispatch(getUser(user))
       // })
       .then(response => dispatch(getProfile(response.Response[0])))
-      // .then(history.push('/profile'))
+      //.then(history.push('/profile'))
       .catch(err => console.log(err))
 
   }
@@ -58,7 +58,6 @@ const getProfile = (user) => {
     })
       .then(response => response.json())
       .then(user => {
-        debugger;
         dispatch(getUser(user))
       })
       .catch(err => console.log(err))

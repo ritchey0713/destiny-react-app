@@ -13,6 +13,7 @@ class Landing extends Component {
     this.state = {
       username: ''
     }
+    
 
     this.onChange = this.onChange.bind(this)
     this.onSelectPlatform = this.onSelectPlatform.bind(this)
@@ -35,21 +36,22 @@ class Landing extends Component {
     } else {
       username = this.state.username
     }
-
+    
     // this.props.grabUser(username, platform, () => {
     //   this.props.history.push('/profile')
     // })
     this.props.grabUser(username, platform, this.props.history)
+ 
   }
-
+ 
   render() {
+    console.log('MAPSTATE',this.props )
     return (
       <div className="landing">
         <img src={d2logo} alt="" />
 
         <form className="landing-form">
           <h5>Enter your username, then select your platform to begin</h5>
-
           <input
             onChange={this.onChange}
             type="text"
@@ -71,8 +73,11 @@ class Landing extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => {
+  debugger;
+ return ({
   user: state.user
-})
+ }) 
+}
 
 export default connect(mapStateToProps, { grabUser })(Landing)
