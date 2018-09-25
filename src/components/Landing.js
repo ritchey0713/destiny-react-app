@@ -13,7 +13,7 @@ class Landing extends Component {
     this.state = {
       username: ''
     }
-   
+
     this.onChange = this.onChange.bind(this)
     this.onSelectPlatform = this.onSelectPlatform.bind(this)
   }
@@ -36,10 +36,12 @@ class Landing extends Component {
       username = this.state.username
     }
 
-    this.props.grabUser(username, platform)
-    this.props.history.push('/profile')
+    // this.props.grabUser(username, platform, () => {
+    //   this.props.history.push('/profile')
+    // })
+    this.props.grabUser(username, platform, this.props.history)
   }
-  
+
   render() {
     return (
       <div className="landing">
@@ -60,10 +62,10 @@ class Landing extends Component {
             <button className="fas fa-desktop" onClick={this.onSelectPlatform} name="platform" value="4"></button>
             <button className="fab fa-playstation" onClick={this.onSelectPlatform} name="platform" value="2"></button>
             <button className="fab fa-xbox" onClick={this.onSelectPlatform} name="platform" value="1"></button>
-            
+
           </div>
         </form>
-        
+
       </div>
     )
   }
