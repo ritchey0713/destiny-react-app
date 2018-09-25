@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import d2logo from '../assets/d2logo.png'
 import { grabUser } from '../actions/user'
+import Profile from './Profile.js'
 
 class Landing extends Component {
 
@@ -12,7 +13,7 @@ class Landing extends Component {
     this.state = {
       username: ''
     }
-
+   
     this.onChange = this.onChange.bind(this)
     this.onSelectPlatform = this.onSelectPlatform.bind(this)
   }
@@ -36,12 +37,13 @@ class Landing extends Component {
     }
 
     this.props.grabUser(username, platform)
-    // probably want to redirect
+    this.props.history.push('/profile')
   }
-
+  
   render() {
     return (
       <div className="landing">
+      <Profile />
         <img src={d2logo} alt="" />
 
         <form className="landing-form">
@@ -59,15 +61,17 @@ class Landing extends Component {
             <button className="fas fa-desktop" onClick={this.onSelectPlatform} name="platform" value="4"></button>
             <button className="fab fa-playstation" onClick={this.onSelectPlatform} name="platform" value="2"></button>
             <button className="fab fa-xbox" onClick={this.onSelectPlatform} name="platform" value="1"></button>
+            
           </div>
         </form>
+        
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  users: state.users
+  user: state.user
 })
 
 export default connect(mapStateToProps, { grabUser })(Landing)
