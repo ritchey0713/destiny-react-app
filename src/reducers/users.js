@@ -1,15 +1,21 @@
 const initialState = {
-  user: {}
+  username: '',
+  characters: {}
 }
 
 export default (state = initialState, action) => {
 
   switch (action.type) {
     case "GET_USER_INFO":
-      // debugger
+      debugger
       return {
         ...state,
-        user: action.user.Response[0]
+        characters: action.user.Response["characters"]["data"]
+      }
+    case "SET_USERNAME":
+      return {
+        ...state,
+        username: action.username
       }
 
     default:

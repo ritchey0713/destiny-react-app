@@ -10,6 +10,13 @@ const getUser = user => {
   }
 }
 
+const setUserName = username => {
+  return {
+    type: "SET_USERNAME",
+    username
+  }
+}
+
 ///Destiny2/{membershipType}/Profile/{destinyMembershipId}/
 
 // /Destiny2/SearchDestinyPlayer/{membershipType}/{displayName}/
@@ -33,8 +40,11 @@ export const grabUser = (userName, platform, history) => {
       // .then(user => {
       //   dispatch(getUser(user))
       // })
-      .then(response => dispatch(getProfile(response.Response[0])))
-      // .then(history.push('/profile'))
+      .then(response => {
+        dispatch(setUserName(userName))
+        dispatch(getProfile(response.Response[0]))
+      })
+      .then(history.push('/profile'))
       .catch(err => console.log(err))
 
   }

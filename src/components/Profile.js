@@ -8,12 +8,12 @@ class Profile extends Component {
   // }
 
   renderUser() {
-    const user = this.props.users.user
-
+    const username = this.props.users.username
+    // debugger;
     return (
 
       <div>
-        <h2>{user.displayName}</h2>
+        <h2>{username}</h2>
       </div>
 
     )
@@ -24,7 +24,7 @@ class Profile extends Component {
     return (
       <div>
 
-        {this.props.users.user ? this.renderUser() : "NO USER"}
+        {this.props.users.username ? this.renderUser() : "NO USER"}
         search destiny player dump
 
       </div>
