@@ -34,7 +34,7 @@ export const grabUser = (userName, platform, history) => {
       //   dispatch(getUser(user))
       // })
       .then(response => dispatch(getProfile(response.Response[0])))
-      //.then(history.push('/profile'))
+      .then(history.push('/profile'))
       .catch(err => console.log(err))
 
   }
@@ -45,7 +45,8 @@ const getProfile = (user) => {
   // https://www.bungie.net/Platform/Destiny2/2/Profile/4611686018475843998/?components=200
   console.log(user)
   let membershipId = parseInt(user.membershipId)
-  // debugger;
+  const userName = user.displayName;
+  //debugger;
   return dispatch => {
     return fetch(`${API_URL}/${user.membershipType}/Profile/${user.membershipId}/?components=200`, {
       method: "GET",
@@ -57,8 +58,8 @@ const getProfile = (user) => {
       mode: 'cors'
     })
       .then(response => response.json())
-      .then(user => {
-        dispatch(getUser(user))
+      .then(user => { debugger;
+        dispatch(getUser({[userName]: user}))
       })
       .catch(err => console.log(err))
   }
