@@ -1,6 +1,6 @@
 const initialState = {
   username: '',
-  characters: {}
+  characters: []
 }
 
 export default (state = initialState, action) => {
@@ -10,7 +10,7 @@ export default (state = initialState, action) => {
       debugger
       return {
         ...state,
-        characters: action.user.Response["characters"]["data"]
+        characters: action.user
       }
     case "SET_USERNAME":
       return {

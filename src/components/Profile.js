@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import CharacterSelector from './CharacterSelector'
 
 class Profile extends Component {
 
-  // componentDidMount() {
-  //   debugger;
-  // }
-
   renderUser() {
     const username = this.props.users.username
-    // debugger;
+
     return (
 
       <div>
@@ -19,13 +16,49 @@ class Profile extends Component {
     )
   }
 
-  render() {
-    // debugger
+  renderCharacters() {
+    const characters = this.props.users.characters
+    // make sure characters isn't an empty object
+    let charList = [];
+    if (characters.length > 0) {
+
+      // debugger
+      // for (let character in characters) {
+      //   let bannerPath = characters[character].emblemPath
+      //   debugger;
+
+      // }
+
+      charList = characters.map((character) => {
+        return (
+          <CharacterSelector character={character}></CharacterSelector>
+        )
+      })
+
+    }
+
     return (
-      <div>
+      <div className="character-select">
+        {charList}
+      </div>
+    )
+  }
+
+  render() {
+    // we need to create a div to hold the character selection components
+    // - should that div be a component itself? Its not really going to be reused anywhere
+    //   then we need to loop over the characters in the state
+    //      grab their emblem + light level + whatever else
+    //        clicking a class should load a new component (CharacterDetails?)
+    //          CharacterDetails will fire a request to the API to grab the character data
+    return (
+      <div className="profile-main">
 
         {this.props.users.username ? this.renderUser() : "NO USER"}
-        search destiny player dump
+
+        <div className="character-menu">
+          {this.renderCharacters()}
+        </div>
 
       </div>
     )

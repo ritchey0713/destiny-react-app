@@ -68,8 +68,12 @@ const getProfile = (user) => {
     })
       .then(response => response.json())
       .then(user => {
-        debugger;
-        dispatch(getUser(user))
+        let characters = []
+        let data = user.Response["characters"]["data"]
+        for (let character in data) {
+          characters.push(data[character])
+        }
+        dispatch(getUser(characters))
       })
       .catch(err => console.log(err))
   }
