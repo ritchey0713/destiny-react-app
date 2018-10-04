@@ -58,3 +58,44 @@
   display: flex;
   justify-content: space-between;
 }
+
+.character-menu {
+  margin: 0 auto;
+  width: 60%;
+}
+
+.character-select {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.character-selection {
+  position: relative;
+  width: 100%;
+}
+
+.character-selection h2 {
+  position: absolute;
+  top: 6px;
+  left: 20px;
+
+}
+
+.character-selection h3 {
+  position: absolute;
+  top: 6px;
+  right: 20px;
+}
+
+.character-selection .block {
+  color: white;
+  background: rgb(0,0,0);
+  background: rgb(0,0,0,0.7);
+  padding: 5px;
+}
+
+.light-lvl {
+  text-align: right;
+}

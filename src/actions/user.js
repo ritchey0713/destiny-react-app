@@ -10,6 +10,13 @@ const getUser = user => {
   }
 }
 
+const setUserName = username => {
+  return {
+    type: "SET_USERNAME",
+    username
+  }
+}
+
 ///Destiny2/{membershipType}/Profile/{destinyMembershipId}/
 
 // /Destiny2/SearchDestinyPlayer/{membershipType}/{displayName}/
@@ -33,7 +40,10 @@ export const grabUser = (userName, platform, history) => {
       // .then(user => {
       //   dispatch(getUser(user))
       // })
-      .then(response => dispatch(getProfile(response.Response[0])))
+      .then(response => {
+        dispatch(setUserName(userName))
+        dispatch(getProfile(response.Response[0]))
+      })
       .then(history.push('/profile'))
       .catch(err => console.log(err))
 
@@ -57,8 +67,13 @@ const getProfile = (user) => {
       mode: 'cors'
     })
       .then(response => response.json())
-      .then(user => { debugger;
-        dispatch(getUser(user))
+      .then(user => {
+        let characters = []
+        let data = user.Response["characters"]["data"]
+        for (let character in data) {
+          characters.push(data[character])
+        }
+        dispatch(getUser(characters))
       })
       .catch(err => console.log(err))
   }
