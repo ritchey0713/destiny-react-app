@@ -45,7 +45,6 @@ const getProfile = (user) => {
   // https://www.bungie.net/Platform/Destiny2/2/Profile/4611686018475843998/?components=200
   console.log(user)
   let membershipId = parseInt(user.membershipId)
-  const userName = user.displayName;
   //debugger;
   return dispatch => {
     return fetch(`${API_URL}/${user.membershipType}/Profile/${user.membershipId}/?components=200`, {
@@ -59,7 +58,7 @@ const getProfile = (user) => {
     })
       .then(response => response.json())
       .then(user => { debugger;
-        dispatch(getUser({[userName]: user}))
+        dispatch(getUser(user))
       })
       .catch(err => console.log(err))
   }
